@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 33
+    defaultConfig {
+        applicationId "com.app.myapp"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    useLibrary 'org.apache.http.legacy'
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures{
+        viewBinding true
+
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.camera:camera-view:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
+
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    //Add Text Recognition Google ML library
+    implementation 'com.google.android.gms:play-services-mlkit-text-recognition:18.0.2'
+    //中文
+    implementation 'com.google.mlkit:text-recognition-chinese:16.0.0-beta6'
+    testImplementation 'junit:junit:4.13.2'
+
+    // SOAP
+    implementation 'com.google.code.ksoap2-android:ksoap2-android:3.6.4'
+
+    //chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.1'
+
+
+
+    //toolbar
+    implementation 'com.google.android.material:material:1.7.0'
+
+
+    implementation 'com.github.bumptech.glide:glide:4.14.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.1'
+
+    //cropperImage
+    implementation 'com.karumi:dexter:6.2.3'
+    implementation 'com.github.yalantis:ucrop:2.2.6'
+
+    //month year picker
+
+    implementation 'com.whiteelephant:monthandyearpicker:1.3.0'
+    //左右滑動刪除時帶入底圖的函式庫
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.2'
+    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
+}

@@ -1,0 +1,1140 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Moq.Contrib.HttpClient</name>
+    </assembly>
+    <members>
+        <member name="T:Moq.Contrib.HttpClient.IHttpMessageHandler">
+            <summary>
+            An interface to facilitate mocking the protected <see cref="M:System.Net.Http.HttpMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)" /> method.
+            </summary>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.IHttpMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Send an HTTP request as an asynchronous operation.
+            </summary>
+            <param name="request">The HTTP request message to send.</param>
+            <param name="cancellationToken">The cancellation token to cancel operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:System.ArgumentNullException">The request was null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.CreateClient(Moq.Mock{System.Net.Http.HttpMessageHandler})">
+            <summary>
+            Creates a new <see cref="T:System.Net.Http.HttpClient" /> backed by this handler.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.CreateClientFactory(Moq.Mock{System.Net.Http.HttpMessageHandler})">
+            <summary>
+            <para>
+              Creates an <see cref="T:System.Net.Http.IHttpClientFactory" /> that returns new
+              <see cref="T:System.Net.Http.HttpClient" /> instances backed by this handler.
+            </para>
+            <para>
+              To configure a named client, use <see cref="M:Moq.Mock.Get``1(``0)" />
+              to retrieve the mock and add additional setups.
+            </para>
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.Setup``1(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Linq.Expressions.Expression{System.Func{Moq.Contrib.HttpClient.IHttpMessageHandler,``0}})">
+            <summary>
+            Specifies a setup on the mocked type for a call to a value-returning method.
+            </summary>
+            <typeparam name="TResult">Type of the return value. Typically omitted as it can be inferred from the expression.</typeparam>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="expression">Lambda expression that specifies the expected method invocation.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupSequence``1(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Linq.Expressions.Expression{System.Func{Moq.Contrib.HttpClient.IHttpMessageHandler,``0}})">
+            <summary>
+            Return a sequence of values, one per call.
+            </summary>
+            <remarks>
+            <para>
+              Moq has two types of sequences:
+            </para>
+            <para>
+              1. SetupSequence() which creates one setup that returns values in sequence, and
+              2. InSequence().Setup() which creates multiple setups under When() conditions
+                 to ensure that they only match in order
+            </para>
+            <para>
+              This is the former; the latter is <see cref="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.Setup(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Linq.Expressions.Expression{System.Func{Moq.Contrib.HttpClient.IHttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}}})" />.
+            </para>
+            </remarks>
+            <typeparam name="TResult">Type of the return value. Typically omitted as it can be inferred from the expression.</typeparam>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="expression">Lambda expression that specifies the expected method invocation.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.Setup(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Linq.Expressions.Expression{System.Func{Moq.Contrib.HttpClient.IHttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}}})">
+            <summary>
+            Specifies a conditional setup for <see cref="M:Moq.Contrib.HttpClient.IHttpMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)" />
+            by modifying the expression tree similar to <see cref="T:Moq.Protected.ProtectedAsMock`2" />, as Moq does not currently
+            support When() conditions or InSequence() in conjunction with Protected().
+            </summary>
+            <remarks>
+            <para>
+              Moq has two types of sequences:
+            </para>
+            <para>
+              1. SetupSequence() which creates one setup that returns values in sequence, and
+              2. InSequence().Setup() which creates multiple setups under When() conditions
+                 to ensure that they only match in order
+            </para>
+            <para>
+              This is the latter; the former is <see cref="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupSequence``1(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Linq.Expressions.Expression{System.Func{Moq.Contrib.HttpClient.IHttpMessageHandler,``0}})" />.
+            </para>
+            </remarks>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock in the context of a When() or InSequence() condition.</param>
+            <param name="expression">A lambda expression in the form of <c>x => x.SendAsync(...)</c>.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.Verify``1(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Linq.Expressions.Expression{System.Func{Moq.Contrib.HttpClient.IHttpMessageHandler,``0}},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a specific invocation matching the given expression was performed on the mock.
+            Use in conjunction with the default <see cref="F:Moq.MockBehavior.Loose" />.
+            </summary>
+            <typeparam name="TResult">Type of the return value. Typically omitted as it can be inferred from the expression.</typeparam>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="expression">Lambda expression that specifies the method invocation.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:Moq.MockException">The specified invocation did not occur (or did not occur the specified number of times).</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupAnyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler})">
+            <summary>
+            Specifies a setup matching any request.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri)">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" />.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String)">
+            <summary>
+            Specifies a setup for a request matching the given URL.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri)">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" />.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String)">
+            <summary>
+            Specifies a setup for a request matching the given method and URL.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupAnyRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler})">
+            <summary>
+            Specifies a setup matching any request.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri)">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" />.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String)">
+            <summary>
+            Specifies a setup for a request matching the given URL.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri)">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" />.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String)">
+            <summary>
+            Specifies a setup for a request matching the given method and URL.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequestSequence(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupAnyRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler})">
+            <summary>
+            Specifies a setup matching any request.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Uri)">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" />.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.String)">
+            <summary>
+            Specifies a setup for a request matching the given URL.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.String,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri)">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" />.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String)">
+            <summary>
+            Specifies a setup for a request matching the given method and URL.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Specifies a setup for a request matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.SetupRequest(Moq.Language.ISetupConditionResult{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Specifies a setup for a request matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyAnyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that any request was sent.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Predicate{System.Net.Http.HttpRequestMessage},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri,System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given <see cref="T:System.Uri" />.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String,System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given URL.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String,System.Predicate{System.Net.Http.HttpRequestMessage},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Predicate{System.Net.Http.HttpRequestMessage},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given method as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given method as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given method and <see cref="T:System.Uri" />.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given method and URL.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Predicate{System.Net.Http.HttpRequestMessage},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.VerifyRequest(Moq.Mock{System.Net.Http.HttpMessageHandler},System.Net.Http.HttpMethod,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}},System.Nullable{Moq.Times},System.String)">
+            <summary>
+            Verifies that a request was sent matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="handler">The <see cref="T:System.Net.Http.HttpMessageHandler" /> mock.</param>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <param name="times">
+            Number of times that the invocation is expected to have occurred.
+            If omitted, assumed to be <see cref="M:Moq.Times.AtLeastOnce" />.
+            </param>
+            <param name="failMessage">Message to include in the thrown <see cref="T:Moq.MockException" /> if verification fails.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="configure">An action to configure the response headers.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="configure">An action to configure the response headers.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.Net.Http.HttpContent,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="content">The response content.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.Net.Http.HttpContent,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="content">The response content.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.String,System.String,System.Text.Encoding,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return, as <see cref="T:System.Net.Http.StringContent" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type. Defaults to text/plain.</param>
+            <param name="encoding">The character encoding. Defaults to <see cref="P:System.Text.Encoding.UTF8" />.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.String,System.String,System.Text.Encoding,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence, as <see cref="T:System.Net.Http.StringContent" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type. Defaults to text/plain.</param>
+            <param name="encoding">The character encoding. Defaults to <see cref="P:System.Text.Encoding.UTF8" />.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.String,System.String,System.Text.Encoding,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return, as <see cref="T:System.Net.Http.StringContent" /> with <see cref="F:System.Net.HttpStatusCode.OK" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type. Defaults to text/plain.</param>
+            <param name="encoding">The character encoding. Defaults to <see cref="P:System.Text.Encoding.UTF8" />.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.String,System.String,System.Text.Encoding,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence, as <see cref="T:System.Net.Http.StringContent" /> with <see
+            cref="F:System.Net.HttpStatusCode.OK" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type. Defaults to text/plain.</param>
+            <param name="encoding">The character encoding. Defaults to <see cref="P:System.Text.Encoding.UTF8" />.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsJsonResponse``1(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,``0,System.Text.Json.JsonSerializerOptions,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return, as <see cref="T:System.Net.Http.Json.JsonContent" /> using System.Text.Json.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="value">The value to serialize.</param>
+            <param name="options">Options to control the behavior during serialization, the default options are <see
+            cref="F:System.Text.Json.JsonSerializerDefaults.Web" />.</param>
+            <param name="configure">An action to configure the response headers.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsJsonResponse``1(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,``0,System.Text.Json.JsonSerializerOptions,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence, as <see cref="T:System.Net.Http.Json.JsonContent" /> using System.Text.Json.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="value">The value to serialize.</param>
+            <param name="options">Options to control the behavior during serialization, the default options are <see
+            cref="F:System.Text.Json.JsonSerializerDefaults.Web" />.</param>
+            <param name="configure">An action to configure the response headers.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsJsonResponse``1(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},``0,System.Text.Json.JsonSerializerOptions,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return, as <see cref="T:System.Net.Http.Json.JsonContent" /> using System.Text.Json with <see cref="F:System.Net.HttpStatusCode.OK" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="value">The value to serialize.</param>
+            <param name="options">Options to control the behavior during serialization, the default options are <see
+            cref="F:System.Text.Json.JsonSerializerDefaults.Web" />.</param>
+            <param name="configure">An action to configure the response headers.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsJsonResponse``1(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},``0,System.Text.Json.JsonSerializerOptions,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence, as <see cref="T:System.Net.Http.Json.JsonContent" /> using System.Text.Json with <see
+            cref="F:System.Net.HttpStatusCode.OK" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="value">The value to serialize.</param>
+            <param name="options">Options to control the behavior during serialization, the default options are <see
+            cref="F:System.Text.Json.JsonSerializerDefaults.Web" />.</param>
+            <param name="configure">An action to configure the response headers.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.Byte[],System.String,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return, as <see cref="T:System.Net.Http.ByteArrayContent" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.Byte[],System.String,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence, as <see cref="T:System.Net.Http.ByteArrayContent" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Byte[],System.String,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return, as <see cref="T:System.Net.Http.ByteArrayContent" /> with <see cref="F:System.Net.HttpStatusCode.OK" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Byte[],System.String,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence, as <see cref="T:System.Net.Http.ByteArrayContent" /> with <see
+            cref="F:System.Net.HttpStatusCode.OK" />.
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.IO.Stream,System.String,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return, as <see cref="T:System.Net.Http.StreamContent" />. If the stream is seekable, it will be
+            wrapped to allow for reuse across multiple requests (each request maintains an independent stream position).
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Net.HttpStatusCode,System.IO.Stream,System.String,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence, as <see cref="T:System.Net.Http.StreamContent" />. If the stream is seekable, it
+            will be wrapped to allow for reuse across multiple requests (each request maintains an independent stream
+            position).
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="statusCode">The status code.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.Flow.ISetup{System.Net.Http.HttpMessageHandler,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.IO.Stream,System.String,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return, as <see cref="T:System.Net.Http.StreamContent" /> with <see cref="F:System.Net.HttpStatusCode.OK" />. If
+            the stream is seekable, it will be wrapped to allow for reuse across multiple requests (each request
+            maintains an independent stream position).
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.MockHttpMessageHandlerExtensions.ReturnsResponse(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.IO.Stream,System.String,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Specifies the response to return in sequence, as <see cref="T:System.Net.Http.StreamContent" /> with <see
+            cref="F:System.Net.HttpStatusCode.OK" />. If the stream is seekable, it will be wrapped to allow for reuse across
+            multiple requests (each request maintains an independent stream position).
+            </summary>
+            <param name="setup">The setup.</param>
+            <param name="content">The response body.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="configure">An action to configure the response headers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="content" /> is null.</exception>
+        </member>
+        <member name="T:Moq.Contrib.HttpClient.RequestMatcher">
+            <summary>
+            Custom Moq matchers for <see cref="T:System.Net.Http.HttpRequestMessage" /> using <see cref="M:Moq.Match.Create``1(System.Predicate{``0})" />.
+            </summary>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Predicate{System.Net.Http.HttpRequestMessage})">
+            The methods here are used to automatically generate the RequestExtensions.
+            Summaries must start with "A request matching", and parameters must be on a single line.
+            Verify any changes in the generated code.
+            <summary>
+            A request matching the given predicate.
+            </summary>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            A request matching the given predicate.
+            </summary>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Uri)">
+            <summary>
+            A request matching the given <see cref="T:System.Uri" />.
+            </summary>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.String)">
+            <summary>
+            A request matching the given URL.
+            </summary>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            A request matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            A request matching the given <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.String,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            A request matching the given URL as well as a predicate.
+            </summary>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            A request matching the given URL as well as a predicate.
+            </summary>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Net.Http.HttpMethod,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            A request matching the given method as well as a predicate.
+            </summary>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Net.Http.HttpMethod,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            A request matching the given method as well as a predicate.
+            </summary>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Net.Http.HttpMethod,System.Uri)">
+            <summary>
+            A request matching the given method and <see cref="T:System.Uri" />.
+            </summary>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Net.Http.HttpMethod,System.String)">
+            <summary>
+            A request matching the given method and URL.
+            </summary>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Net.Http.HttpMethod,System.Uri,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            A request matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Net.Http.HttpMethod,System.Uri,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            A request matching the given method and <see cref="T:System.Uri" /> as well as a predicate.
+            </summary>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUri">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Net.Http.HttpMethod,System.String,System.Predicate{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            A request matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="M:Moq.Contrib.HttpClient.RequestMatcher.Is(System.Net.Http.HttpMethod,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            A request matching the given method and URL as well as a predicate.
+            </summary>
+            <param name="method">The <see cref="P:System.Net.Http.HttpRequestMessage.Method" />.</param>
+            <param name="requestUrl">The <see cref="P:System.Net.Http.HttpRequestMessage.RequestUri" />.</param>
+            <param name="match">The predicate used to match the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is null.</exception>
+        </member>
+        <member name="T:Moq.Contrib.HttpClient.RequestPredicate">
+            <summary>
+            Memoizes the result of a `match` predicate for a given request to prevent the predicate from being called
+            repeatedly, which may cause it to throw if the request content had been consumed and its stream closed.
+            </summary>
+        </member>
+        <member name="T:Moq.Contrib.HttpClient.ResponseStream">
+            <summary>
+            A wrapper that maintains its own stream position independent of the underlying stream in order to keep requests
+            from interferring with one another while reusing a stream. Also prevents a disposing <see cref="T:System.Net.Http.StreamContent"/>
+            from closing the underlying stream. Like a real HttpContentReadStream, this stream is neither seekable nor
+            writable. Requires a seekable stream.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="blue_RURI">#005CAF</color>
+    <color name="green_TOKIWA">#1B813E</color>
+    <color name="yellow_YAMABUKI">#DBCD4B</color>
+    <color name="red_GINSYU">#C73E3A</color>
+    <color name="error_Orange">#FF6600</color>
+    <color name="original">#737360</color>
+    <color name="text">#432C1D</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="lavender">#8692f7</color>
+    <color name="grey">#808080</color>
+    <color name="mView">#ECEBEB</color>
+    <color name="brown">#94674F</color>
+    <color name="green">#4F703E</color>
+    <color name="gray">#D0CECE</color>
+
+    <color name="brown2">#BA9970</color>
+    <color name="dark_brown">#937E53</color>
+    <color name="yellow">#FFEB3B</color>
+
+
+    <color name="Allgreen">#3A8378</color>
+    <color name="Allgreenlight">#83B5AD</color>
+    <color name="bgWhite">#fafafa</color>
+    <color name="txtPersonalMed">#ECEBEB</color>
+    <color name="drawer_bg">#f7cd45</color>
+    <color name="grey_icon">#555555</color>
+    <color name="noColor">#00F7CD45</color>
+    <color name="Add_btn1">#72B3A3</color>
+    <color name="Add_btn2">#EADD6A</color>
+    <color name="A">#DAE4CD</color>
+    <color name="BG">#7E72B38F</color>
+    <color name="BG2">#FFFBD2</color>
+    <color name="MedMessage">#d0db4d</color>
+    <color name="MedMessagebtn">#018577</color>
+    <color name="DeletePhamacy">#ff3b30</color>
+    <color name="favMedgreen">#018577</color>
+
+    <color name="blue_line">#007AFF</color>
+    <color name="blue_limit">#289BD8 </color>
+    <color name="phtYText">#374f15</color>
+    <color name="phtNText">#594a11</color>
+    <color name="phtYitembg">#f8f8a0</color>
+    <color name="phtNitembg">#fdfede</color>
+    <color name="phtNDaybg">#dff1d7</color>
+    <color name="phtYDaybg">#3a8378</color>
+    <color name="searchPharmacy">#EDEDED</color>
+    <color name="PharmacyPhone">#3a75f7</color>
+</resources>

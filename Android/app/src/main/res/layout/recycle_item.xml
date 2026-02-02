@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            style="@style/PersonalMed"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:id="@+id/textView_ThisDate"
+                style="@style/PersonalMed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="看診時間："
+                android:textColor="?attr/colorBackgroundFloating" />
+
+            <TextView
+                android:id="@+id/textView_Hospital"
+                style="@style/PersonalMed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="5dp"
+                android:text="醫院："
+                android:textColor="?attr/colorBackgroundFloating" />
+
+            <TextView
+                android:id="@+id/textView_Department"
+                style="@style/PersonalMed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="5dp"
+                android:text="科別："
+                android:textColor="?attr/colorBackgroundFloating" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/PersonalMed2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/txtUserName"
+                    style="@style/PersonalMed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="下次回診："
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/textView_ReturnAppointmentDate"
+                    style="@style/PersonalMed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginVertical="5dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:layout_weight="1"
+                android:background="#BABABA" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="2dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/PersonalMed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="第二次領藥："
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/PersonalMed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="第二次領藥："
+                    android:textColor="@color/txtPersonalMed" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView_DeadlineStart_2nd"
+                    style="@style/PersonalMed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/txtline"
+                    style="@style/PersonalMed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" ~ "
+                    android:visibility="gone"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/textView_DeadlineEnd_2nd"
+                    style="@style/PersonalMed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginVertical="5dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:layout_weight="1"
+                android:background="#BABABA" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="2dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/PersonalMed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="第三次領藥："
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/PersonalMed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="第三次領藥："
+                    android:textColor="@color/txtPersonalMed" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView_DeadlineStart_3nd"
+                    style="@style/PersonalMed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/txtline2"
+                    style="@style/PersonalMed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" ~ "
+                    android:visibility="gone"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/textView_DeadlineEnd_3nd"
+                    style="@style/PersonalMed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

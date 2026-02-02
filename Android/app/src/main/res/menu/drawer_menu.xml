@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/genera">
+
+        <item
+            android:id="@+id/pharmacy_search"
+            android:title="@string/pharmacy_search"/>
+
+        <item android:id="@+id/medcine_search"
+            android:title="@string/medcine_search" />
+
+        <item android:id="@+id/MonthlyReport"
+            android:title="@string/MonthlyReport2" />
+
+        <item
+            android:id="@+id/AddSideEffect"
+            android:title="@string/MonthlyReport1" />
+
+        <item android:id="@+id/Prescriptions"
+            android:title="@string/Prescriptions" />
+    </group>
+
+    <item
+        android:id="@+id/null1"
+        android:title=" " />
+
+
+    <item android:id="@+id/Logout"
+        android:icon="@drawable/logout_icon"
+        android:title="@string/Logout" />
+</menu>

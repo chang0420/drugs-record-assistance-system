@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fbfad2"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/myToolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/Register"
+            android:textColor="#825858"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/HealthTitle"
+            android:textColor="#825858"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="5dp"
+            android:text="疾病史:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="20sp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp">
+
+                <CheckBox
+                    android:id="@+id/chkbxNull"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="無"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="      " />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp">
+
+                <CheckBox
+                    android:id="@+id/chkbxCancer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="惡性腫瘤"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" " />
+
+                <CheckBox
+                    android:id="@+id/chkbxBrain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="腦血管疾病"
+                    android:textSize="16dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp">
+
+                <CheckBox
+                    android:id="@+id/chkbxHeart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="心臟疾病 "
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:text=" " />
+
+                <CheckBox
+                    android:id="@+id/chkbxlung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="肺部疾病 "
+                    android:textSize="16dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp">
+
+                <CheckBox
+                    android:id="@+id/chkbxHighBlood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="高血壓疾病 "
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:text=" " />
+
+                <CheckBox
+                    android:id="@+id/chkbxkidney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="腎臟病 "
+                    android:textSize="16dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp">
+
+                <CheckBox
+                    android:id="@+id/chkbxLiver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="慢性肝病及肝硬化 "
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:text=" " />
+
+                <CheckBox
+                    android:id="@+id/chkbxBig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="前列腺肥大 "
+                    android:textSize="16dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp">
+
+                <CheckBox
+                    android:id="@+id/chkbxImmunity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="免疫性疾病 "
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:text=" " />
+
+                <CheckBox
+                    android:id="@+id/chkbxMental"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="精神病"
+                    android:textSize="16dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp">
+
+                <CheckBox
+                    android:id="@+id/chkbxEpilepsy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="癲癇"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:text=" " />
+
+                <CheckBox
+                    android:id="@+id/chkbxSugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="糖尿病 "
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/chkbxOther"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="其他："
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_span="0"
+                    android:focusable="false"
+                    android:inputType="textPersonName"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/btnNext3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="80dp"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:background="@drawable/first_btn_bg"
+                android:text="下一頁"
+                android:textColor="@android:color/background_light"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

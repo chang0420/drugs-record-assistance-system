@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--rectangle 長方形 可以畫出直角形，圓角形，弧形等-->
+    <!--設定圓角，當設置的圓角半徑很大，就可變成弧形邊了-->
+    <corners android:radius="30dp"
+        android:topLeftRadius="0dp"
+        android:topRightRadius="0dp"
+        android:bottomLeftRadius="30dp"
+        android:bottomRightRadius="30dp"/>
+
+    <!--顏色-->
+    <solid android:color="#417AA095" />
+</shape>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="7dp"
+        android:orientation="horizontal"
+        android:id="@+id/lineFavPh">
+
+
+        <TextView
+            android:id="@+id/txtPH"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/favmed_bg"
+            android:gravity="center"
+            android:paddingHorizontal="4dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="大樹藥局"
+            android:textColor="?attr/colorBackgroundFloating"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/favmed_bg2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtLackItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="8"
+                android:gravity="center"
+                android:text="缺藥"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txtLackCMed2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="中文藥名"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#ef3c38"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/txtMDate2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="23dp"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="日期"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

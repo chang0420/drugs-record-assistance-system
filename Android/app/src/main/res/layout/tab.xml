@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        style="@style/background"
+        android:layout_height="0dp"
+        android:layout_weight="0.91"></androidx.viewpager.widget.ViewPager>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        style="@style/background"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.09"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabSelectedTextColor="#3A8378"
+        app:tabTextAppearance="@style/TabFont">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/house3px"
+            android:text="@string/Home" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/Measurement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/phy4"
+            android:text="@string/Measurement" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/FavPharmacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/medstore4"
+            android:text="@string/FavPharmacy" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/Setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/setting4"
+            android:text="@string/DetailSetting" />
+    </com.google.android.material.tabs.TabLayout>
+
+
+</android.widget.LinearLayout>
