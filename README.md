@@ -1,5 +1,7 @@
 <h1>居家用藥輔助系統</h1>
 協助長者記錄各科就診所開立的藥品資訊，提醒按時服藥，並紀錄用藥反應，也可根據生理量測記錄做紀錄，同時協助醫師整合並調整處方藥物。
+<h2>ER-Model</h2>
+<img width="1690" height="861" alt="image" src="https://github.com/user-attachments/assets/da611015-ccd8-44a9-bef7-e435f7cd3806" />
 <h2>App系統功能</h2>
 <ul>
   <li>記錄個人用藥</li>
