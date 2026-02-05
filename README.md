@@ -17,7 +17,6 @@
 </ul>
 <h2>系統畫面-web</h2>
 <img width="1618" height="867" alt="image" src="https://github.com/user-attachments/assets/a40fb51c-0755-4628-9097-ba4676a99fbd" />
-<img width="1626" height="909" alt="image" src="https://github.com/user-attachments/assets/8a8affb6-f620-43ef-b03b-60895b9b1d6a" />
 <h2>系統畫面-app</h2>
 <img width="1276" height="1040" alt="image" src="https://github.com/user-attachments/assets/45855136-5087-4c01-9fc3-ab03b7236c43" />
 <h2>系統示意圖</h2>
