@@ -15,6 +15,13 @@
   <li>用藥異常反應紀錄</li>
   <li>查看個人藥單</li>
 </ul>
+<h2>主要負責：</h2>
+<ul>
+  <li>使用 SQL Server 建立與管理用藥資料庫</li>
+  <li>建立 C# Web Service，讓網頁前端與手機 App 的跨平台資料交換</li>
+  <li>開發 Android App，實作個人藥單設定、用藥提醒與服藥紀錄功能</li>
+  <li>建立ASP.NET網頁系統，支援個人藥品照片上傳與顯示功能</li>
+</ul>
 <h2>系統畫面-web</h2>
 <img width="1618" height="867" alt="image" src="https://github.com/user-attachments/assets/a40fb51c-0755-4628-9097-ba4676a99fbd" />
 <h2>系統畫面-app</h2>
